@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ủng hộ trẻ em </title>
+  <link rel="stylesheet" href="ungho.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+  <div class="banner">
+    <div class="banner-content">
+        <h1>Chào mừng đến với Trang Web của Chúng Tôi</h1>
+        <p>Khám phá nhiều điều thú vị cùng chúng tôi!</p>
+    </div>
+</div>
+
+<div class="menu">
+    <ul>     
+        <li><a href="1 (1).html"><i class="fa-solid fa-house"></i></a></li>
+        <li><a href="quyền.html">Các Quyền</a></li>
+        <li><a href="60.html">Biện Pháp</a></li>
+        <li><a href="datcauhoi.html">Đặt Câu Hỏi</a></li>
+        <li><a href="ungho.html">Quyên góp</a></li> 
+        <li><a href="dangnhap.html">Đăng Nhập</a></li>
+        <li><script async src="https://cse.google.com/cse.js?cx=b1575941420a741cc">
+        </script>
+        <div class="gcse-search"></div></li>
+        <div class="bcxh">
+            <li><a href="baocao.html">Báo Cáo Xâm Hại </a></li>      
+        </div>
+    </ul>
+   
+</div>
+<section class="ungho">
+  <div class="content">
+      <div class="text">
+          <h1>Quyên góp</h1>
+          <p>Nếu bạn đang ở Việt Nam và muốn quyên góp cho các em nhỏ, hãy chuyển khoản ngân hàng:</p>
+          <ul>
+              <li><strong>Tài khoản:</strong> 9015427802</li>
+              <li><strong>Ngân hàng:</strong> Standard Chartered Bank Vietnam</li>
+              <li><strong>Nội dung chuyển khoản:</strong> YAGI2024</li>
+          </ul>
+          <p>Hỗ trợ UNICEF cung cấp vật phẩm thiết yếu cho trẻ em và các gia đình.</p>
+      </div>
+      <div class="qr-container">
+          <p>Hoặc scan mã QR:</p>
+          <img src="qrcode.jpg" alt="QR code" class="qr-code">
+      </div>
+  </div>
+  <div class="international">
+      <p>Nếu bạn đang ở nước ngoài hoặc muốn quyên góp bằng thẻ tín dụng, vui lòng nhấn vào đây.</p>
+  </div>
+  <div class="Card">
+      <img src="phuong-thuc-thanh-toan-quang-cao-tiktok.webp" alt="Card" class="Card">
+  </div>
+</section>
+<center>
+  <div class="donation-container">
+    <h2>Quyên góp cho các em nhỏ</h2>
+    <p>Tham gia UNICEF để làm tất cả những gì cần thiết để cứu và bảo vệ những trẻ em dễ bị tổn thương nhất trên thế giới.</p>
+    
+    <div class="donation-options">
+      <button class="donation-type active">Đóng góp hàng tháng</button>
+      <button class="donation-type">Đóng góp một lần</button>
+    </div>
+    
+    <div class="amount-options">
+      <button class="amount-btn">₫500,000</button>
+      <button class="amount-btn">₫750,000</button>
+      <button class="amount-btn">₫1,000,000</button>
+      <button class="amount-btn">Khác</button>
+    </div>
+    
+    <div class="currency-selector">
+      <select>
+        <option>Việt Nam - USD</option>
+        <!-- Thêm các tùy chọn tiền tệ khác nếu cần -->
+      </select>
+    </div>
+    
+    <button class="next-btn">TIẾP THEO</button>
+    
+    <p class="footer-text">
+      Khi tiếp tục, bạn sẽ được chuyển đến trang thanh toán an toàn, nơi bạn thực hiện chuyển tiền.
+    </p>
+    <p class="footer-link">
+      Có vấn đề? <a href="#">Nhấn vào đây để quyên góp</a>
+    </p>
+  </div>
+
+  <script>
+    const donationTypeButtons = document.querySelectorAll('.donation-type');
+  
+    donationTypeButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove the 'selected' class from all donation type buttons
+        donationTypeButtons.forEach(btn => btn.classList.remove('selected'));
+  
+        // Add the 'selected' class to the clicked button
+        button.classList.add('selected');
+      });
+    });
+  </script>
+  </center>
+</body>
+</html>

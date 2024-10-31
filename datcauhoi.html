@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8"> <!-- Đặt kiểu mã hóa ký tự là UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Đặt kích thước hiển thị cho thiết bị di động -->
+    <title>Hỏi Đáp </title> <!-- Tiêu đề trang -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Chọn font chữ cho toàn bộ trang */
+       
+            justify-content: center; /* Căn giữa theo chiều ngang */
+            align-items: center; /* Căn giữa theo chiều dọc */
+            min-height: 100vh; /* Chiều cao tối thiểu bằng 100% chiều cao cửa sổ */
+            margin: 0; /* Bỏ margin mặc định */
+            background-color: #f9f9f9; /* Màu nền của trang */
+                  /* menu*/
+  .banner {
+    width: 100%;
+    height: 250px;
+    position: relative;
+    background-color: #C5E2E8;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+
+.banner-content {
+    text-align: center;
+    color: rgb(250, 250, 250);
+    animation: slideIn 3s ease-in-out;
+}
+
+.banner h1 {
+    font-size: 2.5em;
+    margin: 0;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.banner p {
+    font-size: 1.2em;
+    margin-top: 10px;
+    animation: fadeIn 3s ease-in-out;
+}.menu {
+    display: flex; 
+    justify-content: space-around; 
+    align-items: center; 
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px; 
+    height: 60px; 
+    width: 100%;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0; 
+    margin: 0; 
+    display: flex;
+    align-items: center;
+}
+
+.menu li {
+    position: relative; 
+    padding: 10px 20px; 
+    cursor: pointer; 
+    
+}
+
+.menu li a {
+    text-decoration: none; 
+    color: rgb(0, 0, 0); 
+}
+
+.menu li::after {
+    content: ''; 
+    position: absolute; 
+    left: 50%; 
+    bottom: -5px; 
+    width: 0; 
+    height: 2px; 
+    background-color: rgb(0, 0, 0); 
+    transition: width 0.3s ease, left 0.3s ease; 
+}
+
+.menu li:hover::after {
+    width: 100%; 
+    left: 0; 
+}
+.bcxh {
+    background-color: #7cd6dcf3; 
+    border: none; 
+    color: white; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 16px;
+    border-radius: 8px; 
+    transition: background-color 0.3s ease; 
+    margin-bottom: 30px;
+    padding: 5px 10px;
+   margin-top: 20px;
+}
+.bcxh:hover {
+    background-color: #58a7b0;
+}
+/* nội dung */
+        }
+        .form-container {
+            max-width: 1000px; 
+            width: 100%; 
+            padding: 20px; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+            background-color: #fff; /* Màu nền của khung */
+            border-radius: 8px; 
+            position: relative; 
+            margin-top: 50px;
+        }
+        h1 {
+            text-align: center; 
+            font-size: 24px; 
+            margin-bottom: 20px; 
+        }
+        form {
+            display: flex; 
+            gap: 40px; 
+        }
+        .left-column, .right-column {
+            flex: 1;
+            display: flex; 
+            flex-direction: column; 
+            gap: 15px; 
+        }
+        input, textarea {
+            width: 100%; 
+            padding: 10px; 
+            font-size: 16px; 
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none; 
+        }
+        textarea {
+            resize: vertical; 
+            height: 180px; 
+        }
+        .submit-button {
+            padding: 12px; 
+            background-color: #7ad8d4d2; 
+            color: white; 
+            border: none; 
+            border-radius: 5px; 
+            font-size: 16px; 
+            cursor: pointer; 
+            width: 200px; 
+            margin: 20px auto 0; 
+            display: block; 
+        }
+        .submit-button:hover {
+            background-color: #5aaaac; 
+        }
+        .message {
+            text-align: center;
+            color: green;
+            margin-top: 10px; 
+        }
+        .error-message {
+            color: red; 
+            font-size: 14px; 
+            margin-top: 5px; 
+        }
+    </style>
+    <script>
+        function submitForm(event) {
+            event.preventDefault(); // Ngăn chặn hành vi gửi form mặc định
+
+            // Xóa thông báo lỗi cũ
+            const errorMessages = document.querySelectorAll('.error-message');
+            errorMessages.forEach(msg => msg.remove());
+
+            // Kiểm tra các ô nhập
+            let hasError = false;
+
+            const inputs = {
+                name: document.querySelector('input[placeholder="Họ và tên"]'),
+                phone: document.querySelector('input[placeholder="Số điện thoại"]'),
+                email: document.querySelector('input[placeholder="Email"]'),
+                subject: document.querySelector('input[placeholder="Chủ đề"]'),
+                title: document.querySelector('input[placeholder="Tiêu đề"]'),
+                content: document.querySelector('textarea[placeholder="Nội dung"]')
+            };
+
+            // Kiểm tra họ và tên
+            if (inputs.name.value.trim() === '') {
+                hasError = true;
+                const errorMsg = document.createElement('div');
+                errorMsg.textContent = 'Vui lòng điền vào ô này';
+                errorMsg.className = 'error-message';
+                inputs.name.insertAdjacentElement('afterend', errorMsg);
+            }
+
+            // Kiểm tra số điện thoại
+            if (inputs.phone.value.trim() === '') {
+                hasError = true;
+                const errorMsg = document.createElement('div');
+                errorMsg.textContent = 'Vui lòng điền vào ô này';
+                errorMsg.className = 'error-message';
+                inputs.phone.insertAdjacentElement('afterend', errorMsg);
+            }
+
+            // Kiểm tra email
+            if (inputs.email.value.trim() === '') {
+                hasError = true;
+                const errorMsg = document.createElement('div');
+                errorMsg.textContent = 'Vui lòng điền vào ô này';
+                errorMsg.className = 'error-message';
+                inputs.email.insertAdjacentElement('afterend', errorMsg);
+            }
+
+            // Nếu không có lỗi, làm trống ô nhập và hiện thông báo thành công
+            if (!hasError) {
+                // Làm trống tất cả các ô nhập
+                inputs.name.value = '';
+                inputs.phone.value = '';
+                inputs.email.value = '';
+                inputs.subject.value = '';
+                inputs.title.value = '';
+                inputs.content.value = '';
+                
+                const message = document.createElement('div'); // Tạo một phần tử div mới cho thông báo
+                message.textContent = 'Đã gửi câu hỏi thành công'; // Nội dung thông báo
+                message.className = 'message'; // Thêm lớp CSS cho thông báo
+
+                // Xóa thông báo cũ nếu có
+                const existingMessage = document.querySelector('.message');
+                if (existingMessage) {
+                    existingMessage.remove();
+                }
+
+                // Thêm thông báo vào khung form
+                const formContainer = document.querySelector('.form-container');
+                formContainer.prepend(message); // Thêm thông báo vào đầu khung
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="banner">
+        <div class="banner-content">
+            <h1>Chào mừng đến với Trang Web của Chúng Tôi</h1>
+            <p>Khám phá nhiều điều thú vị cùng chúng tôi!</p>
+        </div>
+    </div>
+
+    <div class="menu">
+        <ul>     
+            <li><a href="1 (1).html"><i class="fa-solid fa-house"></i></a></li>
+            <li><a href="quyền.html">Các Quyền</a></li>
+            <li><a href="60.html">Biện Pháp</a></li>
+            <li><a href="datcauhoi.html">Đặt Câu Hỏi</a></li>
+            <li><a href="ungho.html">Quyên góp</a></li> 
+            <li><a href="dangnhap.html">Đăng Nhập</a></li>
+            <li><script async src="https://cse.google.com/cse.js?cx=b1575941420a741cc">
+            </script>
+            <div class="gcse-search"></div></li>
+            <div class="bcxh">
+                <li><a href="baocao.html"> Báo Cáo Xâm Hại </a></li>      
+            </div>
+        </ul>
+       
+    </div>
+    <center>
+    <div class="form-container">
+        <h1>HỎI ĐÁP</h1>
+        <form onsubmit="submitForm(event)"> <!-- Thêm sự kiện khi form được gửi -->
+            <!-- Cột bên trái -->
+            <div class="left-column">
+                <input type="text" placeholder="Tiêu đề" required> <!-- Ô nhập tiêu đề -->
+                <textarea placeholder="Nội dung" required></textarea> <!-- Ô nhập nội dung -->
+            </div>
+            <!-- Cột bên phải -->
+            <div class="right-column">
+                <input type="text" placeholder="Chủ đề" required> <!-- Ô nhập chủ đề -->
+                <input type="text" placeholder="Họ và tên" required> <!-- Ô nhập họ và tên -->
+                <input type="tel" placeholder="Số điện thoại" required> <!-- Ô nhập số điện thoại -->
+                <input type="email" placeholder="Email" required> <!-- Ô nhập email -->
+            </div>
+        </form>
+        <button type="submit" class="submit-button" onclick="submitForm(event)">GỬI CÂU HỎI</button> <!-- Nút gửi câu hỏi bên dưới form -->
+    </div>
+    </center>
+</body>
+</html>
